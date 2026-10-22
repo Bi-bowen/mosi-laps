@@ -1,0 +1,29 @@
+/* Demo: restrained brand-yellow cursor light. Interactive targets rise above it. */
+@media (hover: hover) and (pointer: fine) {
+  html[data-pointer-glow="enabled"] body { isolation: isolate; }
+  .global-pointer-glow {
+    --glow-size: 208px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--glow-size);
+    height: var(--glow-size);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transform: translate3d(calc(var(--glow-x, -1000px) - var(--glow-size) / 2), calc(var(--glow-y, -1000px) - var(--glow-size) / 2), 0);
+    background: radial-gradient(circle, rgb(245 197 24 / 27%) 0%, rgb(245 197 24 / 14%) 33%, rgb(245 197 24 / 4%) 57%, transparent 73%);
+    filter: blur(4px);
+    transition: opacity 160ms ease;
+    will-change: transform, opacity;
+  }
+  html[data-pointer-glow="enabled"] .global-pointer-glow.is-visible { opacity: 1; }
+  html[data-pointer-glow="enabled"] [data-pointer-glow-target] {
+    position: relative;
+    z-index: 2;
+  }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .global-pointer-glow { display: none !important; }
+}
