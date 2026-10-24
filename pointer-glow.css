@@ -13,7 +13,7 @@
     z-index: 1;
     opacity: 0;
     transform: translate3d(calc(var(--glow-x, -1000px) - var(--glow-size) / 2), calc(var(--glow-y, -1000px) - var(--glow-size) / 2), 0);
-    background: radial-gradient(circle, rgb(245 197 24 / 27%) 0%, rgb(245 197 24 / 14%) 33%, rgb(245 197 24 / 4%) 57%, transparent 73%);
+    background: radial-gradient(circle, rgb(255 255 255 / 27%) 0%, rgb(255 255 255 / 14%) 33%, rgb(255 255 255 / 4%) 57%, transparent 73%);
     filter: blur(4px);
     transition: opacity 160ms ease;
     will-change: transform, opacity;
